@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GameZone Store</title>
+
+    <!-- Bootstrap 5.3 -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <!-- Bootstrap Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    >
+
+    <!-- CSS propio -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         BARRA DE NAVEGACIÓN
+    ========================== -->
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark sticky-top">
+        <div class="container">
+
+            <a class="navbar-brand fw-bold" href="#">
+                <i class="bi bi-controller"></i>
+                GameZone Store
+            </a>
+
+            <!-- Botón menú para dispositivos móviles -->
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarPrincipal"
+                aria-controls="navbarPrincipal"
+                aria-expanded="false"
+                aria-label="Abrir menú de navegación"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Menú -->
+            <div class="collapse navbar-collapse" id="navbarPrincipal">
+
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">
+                            Inicio
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#videojuegos">
+                            Videojuegos
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#accesorios">
+                            Accesorios
+                        </a>
+                    </li>
+
+                </ul>
+
+                <!-- Carrito -->
+                <button
+                    class="btn btn-outline-light"
+                    type="button"
+                    id="btnCarrito"
+                >
+                    <i class="bi bi-cart3"></i>
+                    Carrito
+                    <span
+                        class="badge bg-primary"
+                        id="contadorCarrito"
+                    >
+                        0
+                    </span>
+                </button>
+
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- =========================
+         CONTENIDO PRINCIPAL
+    ========================== -->
+    <main>
+
+        <!-- HERO -->
+        <section class="bg-primary text-white py-5">
+            <div class="container">
+                <div class="row align-items-center">
+
+                    <div class="col-lg-8">
+                        <h1 class="display-5 fw-bold">
+                            Bienvenido a GameZone Store
+                        </h1>
+
+                        <p class="lead">
+                            Encuentra videojuegos y accesorios para llevar
+                            tu experiencia gaming al siguiente nivel.
+                        </p>
+
+                        <a
+                            href="#productos"
+                            class="btn btn-light btn-lg"
+                        >
+                            Ver productos
+                        </a>
+                    </div>
+
+                    <div class="col-lg-4 text-center mt-4 mt-lg-0">
+                        <i class="bi bi-controller display-1"></i>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- =========================
+             BÚSQUEDA
+        ========================== -->
+        <section class="py-4">
+            <div class="container">
+
+                <div class="row justify-content-center">
+
+                    <div class="col-md-8">
+
+                        <form id="formBusqueda">
+
+                            <label
+                                for="inputBusqueda"
+                                class="form-label fw-bold"
+                            >
+                                Buscar productos
+                            </label>
+
+                            <div class="input-group">
+
+                                <input
+                                    type="search"
+                                    class="form-control"
+                                    id="inputBusqueda"
+                                    placeholder="Ej: Control, videojuego..."
+                                    aria-label="Buscar productos"
+                                >
+
+                                <button
+                                    class="btn btn-primary"
+                                    type="submit"
+                                >
+                                    <i class="bi bi-search"></i>
+                                    Buscar
+                                </button>
+
+                            </div>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- =========================
+             PRODUCTOS
+        ========================== -->
+        <section
+            id="productos"
+            class="py-5 bg-light"
+        >
+
+            <div class="container">
+
+                <div class="text-center mb-5">
+
+                    <h2 class="fw-bold">
+                        Nuestros productos
+                    </h2>
+
+                    <p class="text-muted">
+                        Descubre nuestros productos disponibles.
+                    </p>
+
+                </div>
+
+
+                <!-- Mensaje de carga -->
+                <div
+                    id="mensajeCarga"
+                    class="text-center py-4"
+                >
+                    <div
+                        class="spinner-border text-primary"
+                        role="status"
+                    >
+                        <span class="visually-hidden">
+                            Cargando productos...
+                        </span>
+                    </div>
+
+                    <p class="mt-3">
+                        Cargando productos...
+                    </p>
+                </div>
+
+
+                <!-- Mensaje de error -->
+                <div
+                    id="mensajeError"
+                    class="alert alert-danger d-none"
+                    role="alert"
+                >
+                    No fue posible cargar los productos.
+                    Intenta nuevamente más tarde.
+                </div>
+
+
+                <!-- Aquí JavaScript agregará las cards -->
+                <div
+                    class="row g-4"
+                    id="contenedorProductos"
+                >
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             CARRITO
+        ========================== -->
+        <section
+            id="carrito"
+            class="py-5"
+        >
+
+            <div class="container">
+
+                <div class="row justify-content-center">
+
+                    <div class="col-lg-8">
+
+                        <div class="card shadow-sm">
+
+                            <div class="card-header bg-dark text-white">
+                                <h3 class="mb-0">
+                                    <i class="bi bi-cart3"></i>
+                                    Resumen del carrito
+                                </h3>
+                            </div>
+
+                            <div class="card-body">
+
+                                <div id="resumenCarrito">
+
+                                    <p class="text-muted text-center mb-0">
+                                        El carrito está vacío.
+                                    </p>
+
+                                </div>
+
+                                <hr>
+
+                                <div
+                                    class="d-flex justify-content-between align-items-center"
+                                >
+
+                                    <strong>
+                                        Total:
+                                    </strong>
+
+                                    <span
+                                        class="fs-4 fw-bold"
+                                        id="totalCarrito"
+                                    >
+                                        $0
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+    <footer class="bg-dark text-white py-4">
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-md-6 text-center text-md-start">
+
+                    <h5>
+                        <i class="bi bi-controller"></i>
+                        GameZone Store
+                    </h5>
+
+                    <p class="mb-0">
+                        Tu tienda online de videojuegos y accesorios.
+                    </p>
+
+                </div>
+
+
+                <div class="col-md-6 text-center text-md-end mt-3 mt-md-0">
+
+                    <p class="mb-2">
+                        Contáctanos
+                    </p>
+
+                    <a
+                        href="#"
+                        class="text-white me-3"
+                        aria-label="Instagram"
+                    >
+                        <i class="bi bi-instagram fs-4"></i>
+                    </a>
+
+                    <a
+                        href="#"
+                        class="text-white me-3"
+                        aria-label="Facebook"
+                    >
+                        <i class="bi bi-facebook fs-4"></i>
+                    </a>
+
+                    <a
+                        href="#"
+                        class="text-white"
+                        aria-label="Twitter"
+                    >
+                        <i class="bi bi-twitter-x fs-4"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+            <hr>
+
+            <div class="text-center">
+                <small>
+                    © 2026 GameZone Store - Todos los derechos reservados.
+                </small>
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- Bootstrap JavaScript -->
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    ></script>
+
+    <!-- JavaScript propio -->
+    <script src="assets/js/script.js"></script>
+
+</body>
+
+</html>

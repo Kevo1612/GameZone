@@ -1,0 +1,66 @@
+[
+    {
+        "id": 1,
+        "nombre": "PlayStation 5",
+        "precio": 549990,
+        "categoria": "Videojuegos",
+        "imagen": "assets/img/playstation5.avif",
+        "descripcion": "Consola PlayStation 5 con almacenamiento SSD de alta velocidad."
+    },
+    {
+        "id": 2,
+        "nombre": "Xbox Series X",
+        "precio": 529990,
+        "categoria": "Videojuegos",
+        "imagen": "assets/img/xbox-series-x.avif",
+        "descripcion": "Consola Xbox Series X para disfrutar juegos de nueva generación."
+    },
+    {
+        "id": 3,
+        "nombre": "Nintendo Switch OLED",
+        "precio": 399990,
+        "categoria": "Videojuegos",
+        "imagen": "assets/img/nintendo-switch.avif",
+        "descripcion": "Consola Nintendo Switch OLED con pantalla de alta calidad."
+    },
+    {
+        "id": 4,
+        "nombre": "Control DualSense",
+        "precio": 79990,
+        "categoria": "Accesorios",
+        "imagen": "assets/img/dualsense.jpg",
+        "descripcion": "Control inalámbrico DualSense para PlayStation 5."
+    },
+    {
+        "id": 5,
+        "nombre": "Control Xbox Wireless",
+        "precio": 69990,
+        "categoria": "Accesorios",
+        "imagen": "assets/img/xbox-controller.avif",
+        "descripcion": "Control inalámbrico compatible con Xbox y PC."
+    },
+    {
+        "id": 6,
+        "nombre": "Headset Gaming",
+        "precio": 49990,
+        "categoria": "Accesorios",
+        "imagen": "assets/img/headset-gaming.avif",
+        "descripcion": "Audífonos gaming con sonido envolvente."
+    },
+    {
+        "id": 7,
+        "nombre": "Teclado Mecánico RGB",
+        "precio": 59990,
+        "categoria": "Accesorios",
+        "imagen": "assets/img/teclado.jpg",
+        "descripcion": "Teclado mecánico gaming con iluminación RGB."
+    },
+    {
+        "id": 8,
+        "nombre": "Mouse Gaming RGB",
+        "precio": 34990,
+        "categoria": "Accesorios",
+        "imagen": "assets/img/mouse.jpg",
+        "descripcion": "Mouse gaming de alta precisión con iluminación RGB."
+    }
+]
